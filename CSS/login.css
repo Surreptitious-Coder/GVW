@@ -1,0 +1,20 @@
+body{
+    background: #fffcfc;
+}
+
+#form{
+   width: 20px;
+   border-radius: 5px;
+   margin: 100px auto;
+}
+
+#button{
+    color: #b8b6a9;
+    background: #d5d5da;
+    padding: 5px;
+    margin-left: 69%;
+}
+
+label{
+    size: 20px;
+}
