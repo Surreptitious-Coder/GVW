@@ -1,13 +1,6 @@
 <?php require "../config/database.php";
 
-//$con = mysqli_connect("db", $user="devuser",$password="devpass",$database= "GVWA");
-//$con = mysqli_connect("localhost","root");
 
-//if (mysqli_connect_errno()){
-  //  echo "Error connecting to the database - " . $mysqli_connect_error();
-//}
-
-echo "hi";
 function sqlQuery($query, $con)
 {
     if ($con->query($query) == true) {
@@ -22,14 +15,7 @@ function errorChecking($query, $con){
         echo "Error with $query";
     }
 }
-//CREATE DATABASE IF NOT EXISTS DBName;
 
-//customers
-//$sql = "CREATE DATABASE users";
-//errorChecking($sql,$con);
-
-//$sql = "CREATE DATABASE products";
-//errorChecking($sql,$con);
 
 $sql = "CREATE DATABASE IF NOT EXISTS GVWA";
 errorChecking($sql,$con);
