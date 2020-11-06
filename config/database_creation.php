@@ -17,16 +17,20 @@ function errorChecking($query, $con){
 }
 
 
-$sql = "CREATE DATABASE IF NOT EXISTS GVWA";
+$sql = "DROP DATABASE IF EXISTS GVWA";
 errorChecking($sql,$con);
 
+$sql = "CREATE DATABASE GVWA";
+errorChecking($sql,$con);
+
+//customers
 $sql = "CREATE TABLE `GVWA`.`customers` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `username` VARCHAR(20) NOT NULL , `password` VARCHAR(20) NOT NULL , `admin` BOOLEAN NOT NULL DEFAULT FALSE , UNIQUE `ID` (`ID`)) ENGINE = InnoDB;";
 errorChecking($sql,$con);
 
 $sql = "INSERT INTO `GVWA`.`customers` (`ID`, `username`, `password`, `admin`) VALUES (NULL, 'JamesJonahJameson', 'rockyou2', '0'), (NULL, 'PeterParker', 'password123', '0'), (NULL, 'Veronica', '112223333', '0'), (NULL, 'Samuel', 'Glasgow1991', '0'), (NULL, 'HaCk3rMaN', 'TotallySecure2018', '0')";
 errorChecking($sql,$con);
-//categories
 
+//categories
 $sql = "CREATE TABLE `GVWA`.`categories` ( `name` VARCHAR(20) NOT NULL , PRIMARY KEY (`name`)) ENGINE = InnoDB;";
 errorChecking($sql,$con);
 
@@ -34,7 +38,6 @@ $sql = "INSERT INTO `GVWA`.`categories` (`name`) VALUES ('A'), ('B'), ('C'), ('D
 errorChecking($sql,$con);
 
 //items
-
 $sql = "CREATE TABLE `GVWA`.`items` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `category` VARCHAR(20) NOT NULL , `name` VARCHAR(20) NOT NULL , `price` INT NOT NULL , `image` BLOB NULL DEFAULT NULL , `description` MEDIUMTEXT NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
 errorChecking($sql,$con);
 
@@ -45,17 +48,20 @@ $sql = "ALTER TABLE `GVWA`.`items` ADD FOREIGN KEY (`category`) REFERENCES `cate
 errorChecking($sql,$con);
 
 //item reviews
-
-
-$sql = "CREATE TABLE `GVWA`.`reviews` ( `ID` INT NOT NULL AUTO_INCREMENT , `productID` INT NOT NULL , `rating` INT NOT NULL , `review` MEDIUMTEXT NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
+$sql = "CREATE TABLE `GVWA`.`reviews` ( `ID` INT NOT NULL AUTO_INCREMENT ,`author_id` INT NOT NULL, `product_ID` INT NOT NULL , `rating` INT NOT NULL , `review` MEDIUMTEXT NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
 errorChecking($sql,$con);
 
-$sql = "ALTER TABLE `GVWA`.`reviews` ADD CONSTRAINT `product` FOREIGN KEY (`productID`) REFERENCES `items`(`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;";
+$sql = "ALTER TABLE `GVWA`.`reviews` ADD CONSTRAINT `product` FOREIGN KEY (`product_ID`) REFERENCES `items`(`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;";
+errorChecking($sql,$con);
+
+
+$sql = "ALTER TABLE `GVWA`.`reviews` ADD CONSTRAINT `author` FOREIGN KEY (`author_id`) REFERENCES `customers`(`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT";
+errorChecking($sql,$con);
+
+$sql = "INSERT INTO `GVWA`.`reviews` (`ID`, `author_id`, `product_ID`, `rating`, `review`) VALUES (NULL, '1', '1', '4', 'I want spiderman'), (NULL, '1', '1', '3', 'I really want spiderman'), (NULL, '2', '1', '5', 'ha lol'), (NULL, '3', '3', '2', 'Not enough BoS'), (NULL, '4', '4', '4', 'enough BoS')";
 errorChecking($sql,$con);
 
 //admin
-
-
 $sql = "CREATE TABLE `GVWA`.`admin` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `username` VARCHAR(20) NOT NULL , `password` VARCHAR(20) NOT NULL , `admin` BOOLEAN NOT NULL DEFAULT TRUE , PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
 errorChecking($sql,$con);
 
