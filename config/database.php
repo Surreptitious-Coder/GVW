@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("db", $user="devuser",$password="devpass",$database= "GVWA");
+$con = mysqli_connect("db", $user="devuser",$password="devpass",$database="GVWA");
 
 //$con = mysqli_connect("localhost","root");
 
