@@ -27,7 +27,10 @@ errorChecking($sql,$con);
 $sql = "CREATE TABLE `GVWA`.`customers` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `username` VARCHAR(20) NOT NULL , `password` VARCHAR(20) NOT NULL , `admin` BOOLEAN NOT NULL DEFAULT FALSE , `seller` BOOLEAN NOT NULL DEFAULT FALSE ,  UNIQUE `ID` (`ID`)) ENGINE = InnoDB;";
 errorChecking($sql,$con);
 
-$sql = "INSERT INTO `GVWA`.`customers` (`ID`, `username`, `password`, `admin`, `seller`) VALUES (NULL, 'JamesJonahJameson', 'rockyou2', '0' , '0'), (NULL, 'PeterParker', 'password123', '0', '0'), (NULL, 'Veronica', '112223333', '0', '0'), (NULL, 'Samuel', 'Glasgow1991', '0' , '0'), (NULL, 'HaCk3rMaN', 'TotallySecure2018', '0' , '0')";
+$sql = "ALTER TABLE `GVWA`.`customers` ADD `balance` INT(10) NOT NULL ;";
+errorChecking($sql,$con);
+
+$sql = "INSERT INTO `GVWA`.`customers` (`ID`, `username`, `password`, `admin`, `seller`, `balance`) VALUES (NULL, 'JamesJonahJameson', 'rockyou2', '0' , '0','10'), (NULL, 'PeterParker', 'password123', '0', '0','10'), (NULL, 'Veronica', '112223333', '0', '0','10'), (NULL, 'Samuel', 'Glasgow1991', '0' , '0' ,'10'), (NULL, 'HaCk3rMaN', 'TotallySecure2018', '0' , '0' ,'10')";
 errorChecking($sql,$con);
 
 //sellers
