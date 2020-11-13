@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:5.4-apache
 
 RUN for key in AA8E81B4331F7F50 7638D0442B90D010 9D6D8F6BC857C906; do \
         gpg --recv-keys "$key" \
