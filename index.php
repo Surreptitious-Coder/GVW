@@ -16,6 +16,8 @@
 <a href=./exploits/SQLi/items.php>Items page</a>
 <br>
 
+<a href=./exploits/Files/uploadNewItem.php>Item upload page</a>
+<br>
 
 <a href=./config/database_creation.php>Database Creation page</a>
 <br>
