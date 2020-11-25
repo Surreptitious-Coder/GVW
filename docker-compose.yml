@@ -2,12 +2,7 @@ version: '3'
 
 services:
   db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: my_secret_pw_shh
-      MYSQL_DATABASE: GVWA
-      MYSQL_USER: devuser
-      MYSQL_PASSWORD: devpass
+    image: 2313175k/mysql:latest
     ports:
       - "9906:3306"
   web:
