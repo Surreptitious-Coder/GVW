@@ -28,7 +28,7 @@ session_start();
 if(!isset($_SESSION['id'])) {
   echo "Cookie named user id is not set!";
 } else {
-  echo "Value is: " . $_SESSION['user_id'];
+  echo "Hello  " . $_SESSION['username'];
   echo "<a href=./logout.php>Logout</a>
   <br>";
 }
