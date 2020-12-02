@@ -31,6 +31,7 @@ if(!isset($_SESSION['id'])) {
   echo "Hello  " . $_SESSION['username'];
   echo "<a href=./logout.php>Logout</a>
   <br>";
+  print_r($_SESSION);
 }
 ?>
 
