@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <body>
@@ -23,10 +22,16 @@
 <br>
 
 <?php
+error_reporting(E_ALL ^ E_WARNING);
 session_start();
 
+if(isset($_SESSION["error"])){
+  $error = $_SESSION["error"];
+  echo "<span>$error</span>";
+}
+
 if(!isset($_SESSION['id'])) {
-  echo "Cookie named user id is not set!";
+  echo "Hello Anonymous user";
 } else {
   echo "Hello  " . $_SESSION['username'];
   echo "<a href=./logout.php>Logout</a>
@@ -38,6 +43,7 @@ if(!isset($_SESSION['id'])) {
 <br>
 <?php
 }
+unset($_SESSION["error"]);
 ?>
 
 </body>
