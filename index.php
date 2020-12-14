@@ -32,6 +32,11 @@ if(!isset($_SESSION['id'])) {
   echo "<a href=./logout.php>Logout</a>
   <br>";
   print_r($_SESSION);
+
+  ?>
+  <a href=./exploits/profiles>Profile</a>
+<br>
+<?php
 }
 ?>
 

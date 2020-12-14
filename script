@@ -6,13 +6,17 @@ CREATE TABLE `GVWA`.`customers` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `userna
 
 ALTER TABLE `GVWA`.`customers` ADD `balance` INT(10) NOT NULL ;
 
-INSERT INTO `GVWA`.`customers` (`ID`, `username`, `password`, `admin`, `seller`, `balance`) VALUES (NULL, 'user', '1234', '0' , '0','0'), (NULL, 'JamesJonahJameson', 'rockyou2', '0' , '0','100'), (NULL, 'PeterParker', 'password123', '0', '0','50'), (NULL, 'Veronica', '112223333', '0', '0','10'), (NULL, 'Samuel', 'Glasgow1991', '0' , '0' ,'10'), (NULL, 'HaCk3rMaN', 'TotallySecure2018', '0' , '0' ,'10');
+ALTER TABLE `GVWA`.`customers` ADD `image` BLOB NOT NULL DEFAULT NULL ;
+
+INSERT INTO `GVWA`.`customers` (`ID`, `username`, `password`, `admin`, `seller`, `balance`,`image`) VALUES (NULL, 'user', '1234', '0' , '0','0',NULL), (NULL, 'JamesJonahJameson', 'rockyou2', '0' , '0','100',NULL), (NULL, 'PeterParker', 'password123', '0', '0','50',NULL), (NULL, 'Veronica', '112223333', '0', '0','10',NULL), (NULL, 'Samuel', 'Glasgow1991', '0' , '0' ,'10',NULL), (NULL, 'HaCk3rMaN', 'TotallySecure2018', '0' , '0' ,'10',NULL);
 
 
 
 CREATE TABLE `GVWA`.`sellers` ( `ID` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(20) NOT NULL , `password` VARCHAR(20) NOT NULL , `admin` BOOLEAN NOT NULL DEFAULT FALSE , `seller` BOOLEAN NOT NULL DEFAULT TRUE, PRIMARY KEY (`ID`)) ENGINE = InnoDB;
 
-INSERT INTO `GVWA`.`sellers` (`ID`, `username`, `password`, `admin`, `seller`) VALUES (1, 'Robert', 'abc123', '0', '1'), (2, 'Scarlett', 'abc1234', '0', '1');
+ALTER TABLE `GVWA`.`sellers` ADD `image` BLOB NOT NULL DEFAULT NULL ;
+
+INSERT INTO `GVWA`.`sellers` (`ID`, `username`, `password`, `admin`, `seller`,`image`) VALUES (1, 'Robert', 'abc123', '0', '1',NULL), (2, 'Scarlett', 'abc1234', '0', '1',NULL);
 
 
 
