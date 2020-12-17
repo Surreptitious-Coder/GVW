@@ -1,10 +1,10 @@
-<?php require "../../config/database.php";
+<?php require "../config/database.php";
 // Initialize the session
 session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: http://127.0.0.1:8080/exploits/SQLi/items.php");
+if(isset($_COOKIE["loggedin"]) && $_COOKIE["loggedin"] === true){
+    header("location: http://127.0.0.1:8080/");
     exit;
 }
  
@@ -38,7 +38,6 @@ if($stmt = mysqli_prepare($con, $sql)){
             if(mysqli_stmt_fetch($stmt)){
                 if($password == $hashed_password){
                     // Password is correct, so start a new session
-                    session_start();
                     
                     // Store data in session variables
                     $_SESSION["loggedin"] = true;

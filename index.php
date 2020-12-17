@@ -9,9 +9,6 @@
 <a href=./exploits/SQLi/seller_login.php>Seller Login page</a>
 <br>
 
-<a href=./exploits/SQLi/admin_login.php>Admin Login page</a>
-<br>
-
 <a href=./exploits/SQLi/items.php>Items page</a>
 <br>
 
@@ -30,6 +27,7 @@ if(isset($_SESSION["error"])){
   echo "<span>$error</span>";
 }
 
+print_r($_SESSION);
 if(!isset($_SESSION['id'])) {
   echo "Hello Anonymous user";
 } else {
@@ -38,12 +36,11 @@ if(!isset($_SESSION['id'])) {
   <br>";
   print_r($_SESSION);
 
-  ?>
-  <a href=./exploits/profiles>Profile</a>
-<br>
-<?php
+  $id = $_SESSION['id'];
+  echo "<a href=./exploits/profiles?id=$id>Profile</a>";
 }
 unset($_SESSION["error"]);
+
 ?>
 
 </body>

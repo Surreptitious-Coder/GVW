@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-<?php require "../../config/database.php";
+<?php require "../config/database.php";
 // Initialize the session
 session_start();
+
 
 if(isset($_SESSION["error"])){
     $error = $_SESSION["error"];
@@ -15,34 +13,26 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
     $error = "Already logged in";
     $_SESSION["error"] = $error;
     header("location: http://127.0.0.1:8080/");
-    exit;
+    exit();
 }
  
-if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    $ip = $_SERVER['HTTP_CLIENT_IP'];
-    if (!($ip == "127.0.0.1")){
-        echo "wrong Ip adddress bud";
-        die;
-    }
-} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    if (!($ip== "127.0.0.1")){
-        echo "wrong Ip adddress bud";
-        die;
-    }
-} else {
-    $ip = $_SERVER['REMOTE_ADDR'];
-    if (!($ip== "127.0.0.1")){
-        echo "wrong Ip adddress bud";
-        die;
-    }
+$allow = array("123.456.789", "127.0.0.1", "789.123.456"); //allowed IPs
+
+if(!isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !in_array($_SERVER['HTTP_X_FORWARDED_FOR'], $allow)) {
+    $error = "wrong IP address";
+    $_SESSION["error"] = $error;
+    header("Location: http://127.0.0.1:8080/"); //redirect
+    exit();
+
 }
 
 unset($_SESSION["error"]);
 ?>
+<!DOCTYPE html>
+<html>
 
 <head>
-<u> Login page </u>
+<u> Hidden admin Login page </u>
 <link href="../../CSS/login.css" rel="stylesheet" type="text/css"> 
 </head>
 

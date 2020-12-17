@@ -55,7 +55,7 @@ INSERT INTO `GVWA`.`reviews` (`ID`, `author_id`, `product_ID`, `rating`, `review
 
 CREATE TABLE `GVWA`.`admin` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `username` VARCHAR(20) NOT NULL , `password` VARCHAR(20) NOT NULL , `admin` BOOLEAN NOT NULL DEFAULT TRUE , `seller` BOOLEAN NOT NULL DEFAULT FALSE, PRIMARY KEY (`ID`)) ENGINE = InnoDB;
 
-INSERT INTO `GVWA`.`admin` (`ID`, `username`, `password`, `admin`,`seller`) VALUES ('1', 'admin', 'admin', '1','0'), ('2', 'H1dDenAdm1n', 'StopLookingHere2', '1','0');
+INSERT INTO `GVWA`.`admin` (`ID`, `username`, `password`, `admin`,`seller`) VALUES ('1', 'admin', 'GlasgowUni2020', '1','0'), ('2', 'H1dDenAdm1n', 'StopLookingHere2', '1','0');
 
 
 
