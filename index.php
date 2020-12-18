@@ -37,7 +37,7 @@ if(!isset($_SESSION['id'])) {
   print_r($_SESSION);
 
   $id = $_SESSION['id'];
-  echo "<a href=./exploits/profiles?id=$id>Profile</a>";
+  echo "<a href=./exploits/profiles/index.php?id=$id>Profile</a>";
 }
 unset($_SESSION["error"]);
 
