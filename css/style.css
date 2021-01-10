@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    background-color: #FFFFFF;
+    margin: 0;
+}
+.content {
+    width: 1000px;
+    margin: 0 auto;
+}
+.content h2 {
+    margin: 0;
+    padding: 25px 0;
+    font-size: 22px;
+    border-bottom: 1px solid #ebebeb;
+    color: #666666;
+}
+
+
+/* CSS Document */
+
+
+.top-item {
+	color: rgba(255,255,255,.5);
+	font-size: 12px;
+}
+.navbar {
+  border-top: 1px solid #444a54;
+  position: relative;
+  z-index:10;
+}
+
+.navbar-nav{
+  position: relative;
+  z-index:10;
+  left: 200px;
+}
+p.lead {
+	font-size: 1.15em;
+}
+.card-body{
+  padding: 15px;
+}
+.card-title {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+.card {
+  -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  cursor:  pointer;
+  overflow:  hidden;
+}
+.card-header {
+  position: relative;
+  z-index:10;
+  background: #f7f7f7;
+}
+.card:hover {
+      box-shadow: 10px 8px 44px -15px rgba(0, 0, 0, 0.33);
+}
+.card-footer {
+  padding: 10px;
+}
+.card-img-top {
+  -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.card:hover .card-img-top {
+  transform: scale(1.1);
+}
+.custom-select {
+  width: 100%;
+}
+footer {
+  padding: 10px 0 5px;
+  font-size: 12px;
+}
+
+div.relative {
+  position: relative;
+  left: 30px;
+  border: 3px solid #73AD21;
+}
+
