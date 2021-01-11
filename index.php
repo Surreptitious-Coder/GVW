@@ -5,6 +5,20 @@
 
 <?php
 
+error_reporting(E_ALL ^ E_WARNING);
+session_start();
+
+
+if(isset($_COOKIE["error"])){
+	$error = $_COOKIE["error"];
+	echo "<span>$error</span>";
+  unset($_COOKIE["error"]);
+  setcookie("error", '', time() - 60*60*24); // WebKit
+  setcookie("error", '', time() - 60*60*24, '/'); 
+  foreach ($_COOKIE as $name => $value) {
+    setcookie($name, '', time() - 60*60*24);
+}
+}
 
 function navigation_bar() {
   echo "
@@ -41,6 +55,7 @@ function navigation_bar() {
                     $id = $_SESSION['id'];
                     echo "<a class=\"nav-item nav-link\" href=\"exploits/profiles/index.php?id=$id\">Profile</a>";
                     echo "<a class=\"nav-item nav-link\" href=\"exploits/Files/uploadNewItem.php\">Upload Item</a>";
+                    echo "<a class=\"nav-item nav-link\" href=./logout.php>Logout</a><br>";
                   }
           
                 echo "</div>";
@@ -55,22 +70,12 @@ function navigation_bar() {
 
 
 
-error_reporting(E_ALL ^ E_WARNING);
-session_start();
 
 
-
-print_r($_COOKIE);
-
-if(isset($_COOKIE["error"])){
-  $error = $_COOKIE["error"];
-  unset($_COOKIE["error"]);
+if(isset($_SESSION["error"])){
+  $error = $_SESSION["error"];
   echo "<span>$error</span>";
-  setcookie("error", '', time() - 60*60*24); // WebKit
-  setcookie("error", '', time() - 60*60*24, '/'); 
 }
-
-
 
 navigation_bar();
 
@@ -78,31 +83,20 @@ if(!isset($_SESSION['id'])) {
   echo "Hello Anonymous user";
 } else {
   echo "Hello  " . $_SESSION['username'];
-  echo "<a href=./logout.php>Logout</a>
-  <br>";
-  print_r($_SESSION);
-
-  $id = $_SESSION['id'];
-  echo "<a href=./exploits/profiles/index.php?id=$id>Profile</a>";
 }
 unset($_SESSION["error"]);
 
 ?>
 
-<a href=./exploits/SQLi/user_login.php>Customer Login page</a>
-<br>
+TODO:
 
-<a href=./exploits/SQLi/seller_login.php>Seller Login page</a>
-<br>
-
-<a href=./exploits/SQLi/items.php>Items page</a>
-<br>
-
-<a href=./exploits/Files/uploadNewItem.php>Item upload page</a>
-<br>
-
-<a href=./config/database_creation.php>Database Creation page</a>
-<br>
+1. Insert Information about what the website does, what to do etc
+2. Insert add to cart on each item
+3. Add stars to rating
+4. Add favicon
+5. make error message nice
+6. profile and checkout stuff
+7. add GVWA.home above the bar
 
 
 </body>
