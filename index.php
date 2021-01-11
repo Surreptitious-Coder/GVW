@@ -32,12 +32,23 @@ function navigation_bar() {
   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" integrity=\"sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN\" crossorigin=\"anonymous\">
   </head>
   <body is=\"dmx-app\">
+  <header class=\"bg-dark text-secondary border-bottom border-secondary\">
+  <div class=\"container\">
+    <div class=\"row\">
+      <div class=\"col\">
+        <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark justify-content-between p-0\">
+          <a class=\"navbar-brand mr-auto ml-auto\" href=\"#\">GVWA</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
     <header class=\"bg-dark text-secondary\">
       <div class=\"container\">
         <div class=\"row\">
           <div class=\"col\">
             <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark justify-content-between\">
-              <a class=\"navbar-brand mr-auto ml-auto\" href=\"#\">GVWA Home</a>
+              <a class=\"navbar-brand mr-auto ml-auto\" href=\"#\"> Home</a>
               <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbar1_collapse\" aria-controls=\"navbar1_collapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
               </button>
@@ -91,11 +102,8 @@ unset($_SESSION["error"]);
 TODO:
 
 1. Insert Information about what the website does, what to do etc
-2. Insert add to cart on each item
-3. Add stars to rating
 4. Add favicon
 5. make error message nice
-6. profile and checkout stuff
 7. add GVWA.home above the bar
 
 

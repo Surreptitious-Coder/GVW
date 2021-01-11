@@ -24,21 +24,12 @@ body {
 
 /* CSS Document */
 
-
 .top-item {
 	color: rgba(255,255,255,.5);
 	font-size: 12px;
 }
 .navbar {
-  border-top: 1px solid #444a54;
-  position: relative;
-  z-index:10;
-}
-
-.navbar-nav{
-  position: relative;
-  z-index:10;
-  left: 200px;
+	border-top: 1px solid #444a54;
 }
 p.lead {
 	font-size: 1.15em;
@@ -85,9 +76,16 @@ footer {
   font-size: 12px;
 }
 
-div.relative {
-  position: relative;
-  left: 30px;
-  border: 3px solid #73AD21;
+
+.stars {
+  color: #ff7501;
+  font-size: 1.2em;
 }
 
+
+img {
+  float: left;
+  width:  350px;
+  height: 350px;
+  object-fit: cover;
+}
