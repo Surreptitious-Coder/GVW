@@ -16,15 +16,8 @@ function navigation_bar() {
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\" integrity=\"sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4\" crossorigin=\"anonymous\">
   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" integrity=\"sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN\" crossorigin=\"anonymous\">
-  <script type=\"text/javascript\" src=\"dmxAppConnect/dmxAppConnect.js\"></script>
-  <link rel=\"stylesheet\" type=\"text/css\" href=\"dmxAppConnect/dmxAnimateCSS/animate.min.css\">
-  <script type=\"text/javascript\" src=\"dmxAppConnect/dmxAnimateCSS/dmxAnimateCSS.js\"></script>
-  <script type=\"text/javascript\" src=\"dmxAppConnect/dmxDataTraversal/dmxDataTraversal.js\"></script>
-  <script type=\"text/javascript\" src=\"dmxAppConnect/dmxFormatter/dmxFormatter.js\"></script>
   </head>
   <body is=\"dmx-app\">
-    <dmx-json-datasource id=\"json-datasource1\" is=\"dmx-serverconnect\" url=\"data.json\"></dmx-json-datasource>
-    <dmx-data-view id=\"data_view1\" dmx-bind:data=\"jsondatasource1.data.list\" filter=\"Beds >  beds.value &amp;&amp;  Price <  price.value\"></dmx-data-view>
     <header class=\"bg-dark text-secondary\">
       <div class=\"container\">
         <div class=\"row\">
@@ -40,14 +33,14 @@ function navigation_bar() {
                   <a class=\"nav-item nav-link\" href=\"exploits/ShoppingCart/shoppingCart.php\">Checkout</a>
                   <a class=\"nav-item nav-link\" href=\"exploits/SQLi/items.php\">Items</a>
 ";
-                  if(!isset($_SESSION['loggedin'])){
+                  if(!isset($_SESSION['id'])){
                     echo '<a class="nav-item nav-link" href="exploits/SQLi/user_login.php">Customer Sign in</a>';
                     echo '<a class="nav-item nav-link" href="exploits/SQLi/seller_login.php">Seller Sign in</a>';
                 }
                   else{
                     $id = $_SESSION['id'];
-                    echo '<a class="nav-item nav-link" href="exploits/Files/uploadNewItem.php">Upload Item</a>';
-                    echo '<a class="nav-item nav-link" href="exploits/profiles/index.php?id=$id">Profile</a>';
+                    echo "<a class=\"nav-item nav-link\" href=\"exploits/profiles/index.php?id=$id\">Profile</a>";
+                    echo "<a class=\"nav-item nav-link\" href=\"exploits/Files/uploadNewItem.php\">Upload Item</a>";
                   }
           
                 echo "</div>";
@@ -61,16 +54,26 @@ function navigation_bar() {
 }
 
 
-navigation_bar();
+
 error_reporting(E_ALL ^ E_WARNING);
 session_start();
 
-if(isset($_SESSION["error"])){
-  $error = $_SESSION["error"];
+
+
+print_r($_COOKIE);
+
+if(isset($_COOKIE["error"])){
+  $error = $_COOKIE["error"];
+  unset($_COOKIE["error"]);
   echo "<span>$error</span>";
+  setcookie("error", '', time() - 60*60*24); // WebKit
+  setcookie("error", '', time() - 60*60*24, '/'); 
 }
 
-print_r($_SESSION);
+
+
+navigation_bar();
+
 if(!isset($_SESSION['id'])) {
   echo "Hello Anonymous user";
 } else {

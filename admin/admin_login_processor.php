@@ -3,7 +3,7 @@
 session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_COOKIE["loggedin"]) && $_COOKIE["loggedin"] === true){
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: http://127.0.0.1:8080/");
     exit;
 }
@@ -46,18 +46,20 @@ if($stmt = mysqli_prepare($con, $sql)){
                     $_SESSION["admin"] = true;                              
                     
                     // Redirect user to welcome page
+                    $password_err = "Congrats.";
+                    setcookie("error",$password_err);
                     header("location: http://127.0.0.1:8080/index.php");
                 } else{
                     // Display an error message if password is not valid
                     $password_err = "The password/username combo you entered was not valid.";
-                    $_SESSION["error"] = $password_err;
+                    setcookie("error",$password_err);
                     header("location: admin_login.php");
                 }
             }
         } else{
             // Display an error message if username doesn't exist
             $username_err = "The password/username combo you entered was not valid.";
-            $_SESSION["error"] = $username_err;
+            setcookie("error",$username_err);
             header("location: admin_login.php");
         }
     } else{
