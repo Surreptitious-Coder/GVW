@@ -3,18 +3,16 @@
 session_start();
 
 error_reporting(E_ERROR | E_PARSE);
-if(isset($_COOKIE["error"])){
-	$error = $_COOKIE["error"];
+if(isset($_SESSION["error"])){
+	$error = $_SESSION["error"];
 	echo "<span>$error</span>";
-    unset($_COOKIE["error"]);
-    setcookie("error", '', time() - 60*60*24); // WebKit
-    setcookie("error", '', time() - 60*60*24, '/'); 
+    unset($_SESSION["error"]);
 }
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
     $error = "Already logged in";
-    setcookie("error",$error);
+    $_SESSION["error"] = $error;
     header("location: http://127.0.0.1:8080/");
     exit();
 }
@@ -23,13 +21,14 @@ $allow = array("123.456.789", "127.0.0.1", "789.123.456"); //allowed IPs
 
 if(!isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !in_array($_SERVER['HTTP_X_FORWARDED_FOR'], $allow)) {
     $error = "wrong IP address";
-    setcookie("error",$error);
-    header("Location: http://127.0.0.1:8080/"); //redirect
+    $_SESSION["error"] = $error;
+    header("location: http://127.0.0.1:8080/");
     exit();
 
 }
 
 unset($_SESSION["error"]);
+
 ?>
 <!DOCTYPE html>
 <html>

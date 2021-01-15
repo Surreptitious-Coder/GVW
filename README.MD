@@ -17,7 +17,7 @@ This program has only been tested on the Linux operating system, so it is recomm
 
 The first program that needs to be installed is [Docker] (https://docs.docker.com/engine/install/ubuntu/) as the program makes use of dockers containers, and it is essential that [Docker-Compose] (https://docs.docker.com/compose/install/) is installed in order to build the container for the program.
 
-Next it is recommended to use either [Google-Chrome] (https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en) or [Firefox] (https://www.mozilla.org/en-GB/firefox/new/) as they are the only browsers to have been fully tested, any others might result in the CSS code to not render, as is the case with Chromium.
+Next it is recommended to use either [Google-Chrome] (https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en) or [Firefox] (https://www.mozilla.org/en-GB/firefox/new/) as they are the only browsers to have been fully tested, any others might result in the CSS code to not render, as is the case with Chromium. For the best experience I recommend Google Chrome as there are a few external CSS packages invoked that only seem to run on Chrome, but they are aesthetic and do not add to the functionality of the website.
 
 For web exploitation, it is necesary to install and use a web proxy to intercept and ghance requests. I made use of the [Burp-Suite] (https://portswigger.net/burp/communitydownload) proxy.
 
@@ -44,7 +44,7 @@ sudo kill -9 [Process ID]
 
 4. Check the program is working by accessing http://127.0.0.1:8080
 
-5. If there is a program running on port 8080 that must be there or cannot be closed, edit the **docker-compose.yml** file and change the ports under the **web** section to **X:80** where X is the port you wish to use.
+5. If there is a program running on port 8080 that must be there or cannot be closed, edit the **docker-compose.yml** file and change the ports under the **web** section to **X:80** where X is the port you wish to use but be warned that due to some unique errors, absolute addressing was used in some cases, so it may cause the program to behave erratically.
 
 ### Proxy setup
 ---------------------

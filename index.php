@@ -10,6 +10,7 @@ session_start();
 
 
 if(isset($_COOKIE["error"])){
+  echo "Cookie: ";
 	$error = $_COOKIE["error"];
 	echo "<span>$error</span>";
   unset($_COOKIE["error"]);
@@ -48,14 +49,12 @@ function navigation_bar() {
         <div class=\"row\">
           <div class=\"col\">
             <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark justify-content-between\">
-              <a class=\"navbar-brand mr-auto ml-auto\" href=\"#\"> Home</a>
+              <a class=\"navbar-brand mr-auto ml-auto\"> Home</a>
               <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbar1_collapse\" aria-controls=\"navbar1_collapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
               </button>
               <div class=\"collapse navbar-collapse\" id=\"navbar1_collapse\">
                 <div class=\"navbar-nav\">
-                  <a class=\"nav-item nav-link\" href=\"/info.php\">About</a>
-                  <a class=\"nav-item nav-link\" href=\"exploits/ShoppingCart/shoppingCart.php\">Checkout</a>
                   <a class=\"nav-item nav-link\" href=\"exploits/SQLi/items.php\">Items</a>
 ";
                   if(!isset($_SESSION['id'])){
@@ -64,6 +63,7 @@ function navigation_bar() {
                 }
                   else{
                     $id = $_SESSION['id'];
+                    echo "<a class=\"nav-item nav-link\" href=\"exploits/ShoppingCart/shoppingCart.php\">Checkout</a>";
                     echo "<a class=\"nav-item nav-link\" href=\"exploits/profiles/index.php?id=$id\">Profile</a>";
                     echo "<a class=\"nav-item nav-link\" href=\"exploits/Files/uploadNewItem.php\">Upload Item</a>";
                     echo "<a class=\"nav-item nav-link\" href=./logout.php>Logout</a><br>";
@@ -95,16 +95,56 @@ if(!isset($_SESSION['id'])) {
 } else {
   echo "Hello  " . $_SESSION['username'];
 }
+
+print_r($_SESSION);
 unset($_SESSION["error"]);
 
 ?>
 
-TODO:
+<section id="intro" class="bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h3 class="section-title">What is this application?</h3>
+        <p class="lead">
+        Welcome to Glasgow's Vunerable Web Application, or GVWA for short.
+        Its intended purpose is to act as a more realistic scenario to exploit rather than other web applications that just tell you
+        where the vunerability lies, so it is up to you, the user, to find and exploit the vulnerabilties hidden. This application also offers
+        the user the chance to edit the code and try to fix the more obvious flaws and some helpful reset buttons incase things go slightly wrong.
+        To make things easier,
+        below is a list of the **intended** vunerabilities, as there maybe some unintended ones along the way:
 
-1. Insert Information about what the website does, what to do etc
-4. Add favicon
-5. make error message nice
-7. add GVWA.home above the bar
+</p>
+<p>
+        <strong> XSS vulnerabilties </strong>
+        <br>
+        <strong> Username enumeration </strong>
+        <br>
+        <strong> SQL injections </strong>
+        <br>
+        <strong> File upload vulnerability </strong>
+        <br>
+        <strong> Unrestricted File upload vulnerability </strong>
+        <br>
+        <strong> Directory traversal vulnerabilties </strong>
+        <br>
+        <strong> Vertical privilege escalation </strong>
+        <br>
+        <strong> Logic flaws in the checkout </strong>
+        <br>
+        <strong> Web application firewall vulnerabilities </strong>
+      </p>
+
+      <h3 class="section-title">Resources</h3>
+      <p class="lead">
+
+      Below are resources that may come in handy 
+
+
+</p>
+      </div>
+    </div>
+  </div>
 
 
 </body>

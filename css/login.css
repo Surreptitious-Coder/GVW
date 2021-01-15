@@ -77,3 +77,7 @@ p.error {
 p.error {
     background: orangered;
 }
+
+.profile img {
+    height: 350px !important;
+  }
