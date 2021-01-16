@@ -96,7 +96,6 @@ if(!isset($_SESSION['id'])) {
   echo "Hello  " . $_SESSION['username'];
 }
 
-print_r($_SESSION);
 unset($_SESSION["error"]);
 
 ?>
@@ -108,7 +107,7 @@ unset($_SESSION["error"]);
         <h3 class="section-title">What is this application?</h3>
         <p class="lead">
         Welcome to Glasgow's Vunerable Web Application, or GVWA for short.
-        Its intended purpose is to act as a more realistic scenario to exploit rather than other web applications that just tell you
+        The intended purpose is to act as a more realistic scenario to exploit rather than other web applications that just tell you
         where the vunerability lies, so it is up to you, the user, to find and exploit the vulnerabilties hidden. This application also offers
         the user the chance to edit the code and try to fix the more obvious flaws and some helpful reset buttons incase things go slightly wrong.
         To make things easier,

@@ -5,11 +5,10 @@ def write_over(oldFile, newFile):
     print("Old file is ",oldFile)
     print("New file is ",newFile)
 
-    with (open(newFile, 'r')) as f:
+    with (open(newFile, 'r',encoding = "utf-8")) as f:
         data = f.read()
-        print(data)
 
-    with (open(oldFile, 'w')) as g:
+    with (open(oldFile, 'w',encoding = "utf-8")) as g:
         g.write(data)
 
     print("Data overwritten successfully")

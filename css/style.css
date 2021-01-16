@@ -10,7 +10,7 @@ body {
   margin: 0;
 }
 .navtop {
-  background-color: #3f69a8;
+  background-color: #000000;
   height: 60px;
   width: 100%;
   border: 0;
@@ -56,6 +56,7 @@ body {
   border-bottom: 1px solid #ebebeb;
   color: #666666;
 }
+
 
 /* CSS Document */
 

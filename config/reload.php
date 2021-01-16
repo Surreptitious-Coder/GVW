@@ -9,6 +9,8 @@ $page = $_GET['page_name'];
 
 
 
-$command = 'python copy_files.py ' . $page;
+$command = 'python3 copy_files.py ' . $page;
 $output =  shell_exec($command);
+
+echo $output;
 ?>

@@ -51,8 +51,9 @@ form {
     margin: 25px auto;
     padding: 20px;
     border: 5px solid #ccc;
-    width: 500px;
+    width: 550px;
     background: #eee;
+    float: center;
 }
 div.form-element {
     margin: 20px 0;
@@ -78,6 +79,6 @@ p.error {
     background: orangered;
 }
 
-.profile img {
+img {
     height: 350px !important;
   }
