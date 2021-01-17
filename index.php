@@ -20,6 +20,11 @@ if(isset($_COOKIE["error"])){
     setcookie($name, '', time() - 60*60*24);
 }
 }
+if(isset($_SESSION["error"])){
+  $error = $_SESSION["error"];
+  echo "<span>$error</span>";
+}
+unset($_SESSION["error"]);
 
 function navigation_bar() {
   echo "
@@ -37,8 +42,8 @@ function navigation_bar() {
   <div class=\"container\">
     <div class=\"row\">
       <div class=\"col\">
-        <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark justify-content-between p-0\">
-          <a class=\"navbar-brand mr-auto ml-auto\" href=\"#\">GVWA</a>
+        <nav class=\"navbar navbar-expand-lg navbar-dark bg-black justify-content-between p-0\">
+          <a class=\"navbar-brand mr-auto ml-auto\" href=\"#\">GVW</a>
         </nav>
       </div>
     </div>
@@ -48,8 +53,8 @@ function navigation_bar() {
       <div class=\"container\">
         <div class=\"row\">
           <div class=\"col\">
-            <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark justify-content-between\">
-              <a class=\"navbar-brand mr-auto ml-auto\"> Home</a>
+            <nav class=\"navbar navbar-expand-lg navbar-dark bg-black justify-content-between\">
+            <a class=\"nav-item nav-link\"> Home</a>
               <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbar1_collapse\" aria-controls=\"navbar1_collapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
               </button>
@@ -83,10 +88,7 @@ function navigation_bar() {
 
 
 
-if(isset($_SESSION["error"])){
-  $error = $_SESSION["error"];
-  echo "<span>$error</span>";
-}
+
 
 navigation_bar();
 
@@ -106,7 +108,7 @@ unset($_SESSION["error"]);
       <div class="col-lg-8">
         <h3 class="section-title">What is this application?</h3>
         <p class="lead">
-        Welcome to Glasgow's Vunerable Web Application, or GVWA for short.
+        Welcome to Glasgow's Vunerable Web-Application, or GVW for short.
         The intended purpose is to act as a more realistic scenario to exploit rather than other web applications that just tell you
         where the vunerability lies, so it is up to you, the user, to find and exploit the vulnerabilties hidden. This application also offers
         the user the chance to edit the code and try to fix the more obvious flaws and some helpful reset buttons incase things go slightly wrong.
@@ -137,10 +139,20 @@ unset($_SESSION["error"]);
       <h3 class="section-title">Resources</h3>
       <p class="lead">
 
-      Below are resources that may come in handy 
+      Below are resources that may come in handy:
 
+      <h4> The OWASP top 10 </h4>
+      https://owasp.org/www-project-top-ten/
 
+      <p>
+      <h4> File upload vulnerabilties </h4>
+      https://www.hacksplaining.com/exercises/file-upload
+
+      <p>
+      <h4> XSS filter evasion </h4>
+      https://www.acunetix.com/blog/web-security-zone/xss-filter-evasion-basics/
 </p>
+
       </div>
     </div>
   </div>

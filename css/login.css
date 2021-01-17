@@ -53,8 +53,11 @@ form {
     border: 5px solid #ccc;
     width: 550px;
     background: #eee;
-    float: center;
+    position: relative !important;
+    right: 240px !important;
 }
+
+
 div.form-element {
     margin: 20px 0;
 }

@@ -3,7 +3,7 @@ function navigation_bar() {
   echo "
   <!DOCTYPE html><html><head>
 <meta charset=\"UTF-8\">
-<title>GVWA</title>
+<title>GVW</title>
   
   <link href=\"http://127.0.0.1:8080/css/style.css\" type=\"text/css\" rel=\"stylesheet\" />
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
@@ -16,7 +16,7 @@ function navigation_bar() {
     <div class=\"row\">
       <div class=\"col\">
         <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark justify-content-between p-0\">
-          <a class=\"navbar-brand mr-auto ml-auto\" href=\"#\">GVWA</a>
+          <a class=\"navbar-brand mr-auto ml-auto\" href=\"#\">GVW</a>
         </nav>
       </div>
     </div>
