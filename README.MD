@@ -26,12 +26,17 @@ The container takes up roughly 500MB of space as it also includes every dependen
 ### Running the program
 -------------------------
 1. On the linux operating system, open up the command line inside the folder containing the program.
-2. Use 'docker-compose' to build and run the program, using a line similar to:
+2. Make the project folder writable and executable using:
+```
+sudo chmod -R 777 GVW
+```
+
+3. Use 'docker-compose' to build and run the program, using a line similar to:
 
 ```
 sudo docker-compose up 
 ```
-3. Make sure there are no processes using port **8080**, this can be done using the following line on linux:
+4. Make sure there are no processes using port **8080**, this can be done using the following line on linux:
 
 ```
 netstat -aon | findstr 8080
