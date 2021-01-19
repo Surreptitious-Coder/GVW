@@ -2,7 +2,6 @@
 
 $target_dir = "../../assets/acccounts/";
 
-echo $target_dir;
 $target_file = $target_dir . basename($_FILES["image"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -35,7 +34,7 @@ if ($_FILES['image']['size'] > 0 && $_FILES['image']['size'] < 30000000) {
         if ($check["mime"] != "image/png") {
             $error = "File is not png image.";
             $_SESSION['error'] = $error;
-            header("location: index.php");
+            header("location: index.php?id=$id");
             exit;
         } else {
             if (move_uploaded_file($_FILES[ 'image' ][ 'tmp_name' ], $target_file)) {
@@ -47,11 +46,12 @@ if ($_FILES['image']['size'] > 0 && $_FILES['image']['size'] < 30000000) {
                 if(mysqli_query($con, $sql)){
                     $error = "Records were updated successfully.";
                     $_SESSION['error'] = $error;
-                    header("location: index.php");
+                    header("location: index.php?id=$id");
+                    exit;
                 } else {
                    $error = "ERROR: Could not execute $sql. " . mysqli_error($con);
                    $_SESSION['error'] = $error;
-                    header("location: index.php");
+                    header("location: index.php?id=$id");
                     exit;
                 }
                 #$id = mysqli_query($con, $sql) or die('<pre>' . ((is_object($con)) ? mysqli_error($con) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>');
