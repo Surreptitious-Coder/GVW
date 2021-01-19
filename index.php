@@ -9,17 +9,7 @@ error_reporting(E_ALL ^ E_WARNING);
 session_start();
 
 
-if(isset($_COOKIE["error"])){
-  echo "Cookie: ";
-	$error = $_COOKIE["error"];
-	echo "<span>$error</span>";
-  unset($_COOKIE["error"]);
-  setcookie("error", '', time() - 60*60*24); // WebKit
-  setcookie("error", '', time() - 60*60*24, '/'); 
-  foreach ($_COOKIE as $name => $value) {
-    setcookie($name, '', time() - 60*60*24);
-}
-}
+
 if(isset($_SESSION["error"])){
   $error = $_SESSION["error"];
   echo "<span>$error</span>";
@@ -95,7 +85,7 @@ navigation_bar();
 if(!isset($_SESSION['id'])) {
   echo "Hello Anonymous user";
 } else {
-  echo "Hello  " . $_SESSION['username'];
+  echo "<i><h4>Hello  " . $_SESSION['username']. "</h4></i>";
 }
 
 unset($_SESSION["error"]);
@@ -106,7 +96,9 @@ unset($_SESSION["error"]);
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
+      <u>
         <h3 class="section-title">What is this application?</h3>
+      </u>
         <p class="lead">
         Welcome to Glasgow's Vunerable Web-Application, or GVW for short.
         The intended purpose is to act as a more realistic scenario to exploit rather than other web applications that just tell you
@@ -136,8 +128,10 @@ unset($_SESSION["error"]);
         <strong> Web application firewall vulnerabilities </strong>
       </p>
 
+<u>
       <h3 class="section-title">Resources</h3>
       <p class="lead">
+</u>
 
       Below are resources that may come in handy:
 
