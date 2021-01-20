@@ -13,7 +13,7 @@ This is purely for edcational purpose and so the creator does not condone the us
 
 ### Prerequisites
 ------------------
-This program has only been tested on the Linux operating system, so it is recommended to use Linux as the choice of OS, specifically [Ubuntu](https://ubuntu.com/download/desktop)
+This program has only been tested on the Linux operating system, so it is recommended to use Linux as the choice of OS, specifically [Ubuntu.](https://ubuntu.com/download/desktop)
 
 The first program that needs to be installed is [Docker](https://docs.docker.com/engine/install/ubuntu/) as the program makes use of dockers containers, and it is essential that [Docker-Compose](https://docs.docker.com/compose/install/) is installed in order to build the container for the program.
 
