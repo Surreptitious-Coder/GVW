@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL ^ E_WARNING);
+error_reporting(E_ERROR);
 $con = mysqli_connect("db", $user="devuser",$password="devpass",$database="GVWA");
 
 //$con = mysqli_connect("localhost","root");

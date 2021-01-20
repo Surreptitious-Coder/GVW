@@ -2,7 +2,7 @@
 
 ## About
 -----------
-The purpose of this program is to help beginner and intermediate users to hone their web exploitation and development skills by mirroring a vunerable e-commerce application.
+The purpose of this program is to help beginner and intermediate users to hone their web exploitation and development skills by mirroring a vunerable e-commerce application. It also allows the user to make changes to the front and back end, with reset buttons provided if something goes wrong.
 
 The program isn't perfect and only has a number of vulnerabilities, so feel free to add your own vulnerabilties.
 
@@ -30,13 +30,7 @@ The container takes up roughly 500MB of space as it also includes every dependen
 ```
 sudo chmod -R 777 GVW
 ```
-
-3. Use 'docker-compose' to build and run the program, using a line similar to:
-
-```
-sudo docker-compose up 
-```
-4. Make sure there are no processes using port **8080**, this can be done using the following line on linux:
+3. Make sure there are no processes using port **8080**, this can be done using the following line on linux:
 
 ```
 netstat -aon | findstr 8080
@@ -47,19 +41,33 @@ And to kill the process:
 sudo kill -9 [Process ID]
 ```
 
-4. Check the program is working by accessing http://127.0.0.1:8080
+4. Use 'docker-compose' to build and run the program, using a line similar to:
 
-5. If there is a program running on port 8080 that must be there or cannot be closed, edit the **docker-compose.yml** file and change the ports under the **web** section to **X:80** where X is the port you wish to use but be warned that due to some unique errors, absolute addressing was used in some cases, so it may cause the program to behave erratically.
+```
+sudo docker-compose up 
+```
 
+
+5. Check the program is working by accessing http://127.0.0.1:8080
+
+6. To close the program go to the terminal and use Ctrl +C and then type in:
+```
+sudo docker-compose down
+```
 ### Proxy setup
 ---------------------
 For the web proxy, I used [Burp-Suite] (https://portswigger.net/burp/communitydownload).
 
 1. Install and setup the Burp Suite proxy using the link provided.
 2. Setup the proxy to listen on an arbritrary port, I personally used **port 8100**.
-3. Setup the browser of your choice to listen for a proxy on the same port as the one used above.
+3. Setup the browser of your choice to listen for a proxy on the same port as the one used above, usually done via Settings then search for proxy settings.
 
 ### Editing project code
 ---------------------------
 It is recommended to clone the project and import it into [Visual Studio] (https://code.visualstudio.com/download) in order to edit the code. **DO NOT EDIT** the folder labeled **copies** as that is used for resetting the front end or the backend if the user makes a change to the program that they wish to take back but for some reason cannot do so normally.
 
+When making changes, if they are not immediately visible, try emptying the browser's cache, or by re building the container via:
+
+```
+sudo docker-compose build --no-cache
+```
