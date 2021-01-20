@@ -3,10 +3,10 @@
 session_start();
 
 
-if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
+if(!(isset($_SESSION["customer"]) && $_SESSION["loggedin"] === true)){
 	$error = "must be logged as a customer to buy items";
 	$_SESSION["error"] = $error;
-    header("location: ../SQLi/items.php");
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit;
 }
 
@@ -23,20 +23,26 @@ if (!empty($_GET["action"])) {
             
             $price = $_GET['price'];
             $itemArray = array($productByCode["ID"]=>array('name'=>$productByCode["name"], 'ID'=>$productByCode["ID"], 'quantity'=>$_POST["quantity"], 'price'=>$price, 'image'=>$productByCode["image"]));
-            
+
+                
             if (!empty($_SESSION["cart_item"])) {
                     foreach ($_SESSION["cart_item"] as $k => $v) {
-                        if ($productByCode["name"] == $v['name']){
+                        if ($productByCode["name"] == $v['name']) {
                             $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+                            break;
+                        } elseif (empty($_SESSION["cart_item"][$k]["quantity"])) {
+                            $_SESSION["cart_item"][$k]["quantity"] = 0;
+                        } else {
+                            $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
                         }
                     }
             } else {
                 $_SESSION["cart_item"] = $itemArray;
-			}
-			$error = "item successfully added";
-			$_SESSION["error"] = $error;
-			header('Location: ' . $_SERVER['HTTP_REFERER']);
-    exit;
+            }
+            $error = "item successfully added";
+            $_SESSION["error"] = $error;
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
         }
     break;
     case "remove":

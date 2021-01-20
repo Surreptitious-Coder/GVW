@@ -24,6 +24,7 @@ navigation_bar();
 
 <?php 
 
+
 if(isset($_SESSION["cart_item"])){
     $total_quantity = 0;
     $total_price = 0;
@@ -72,9 +73,15 @@ if(isset($_SESSION["cart_item"])){
         </div>
 <td></td>
 </div>
+
 <div class="buttons">
-<input type="submit" id="btnCheckout" href="checkout.php" value="Checkout">
-<input type="submit" id="btnEmpty" href="updateShoppingCart.php?action=empty" value="Empty Cart">
+<form action="checkout.php">
+<button class="button1" type="submit">Checkout</button>
+</form>
+
+
+<a class="button1" type="submit" href = "updateShoppingCart.php?action=empty"> Empty Cart </a>
+
 </div>
 
 </br>
@@ -86,7 +93,7 @@ if(isset($_SESSION["cart_item"])){
 
 <form action="../../config/reload.php?page_name">
     <input type="hidden" value=<?php echo __DIR__;?>/updateShoppingCart.php id="page_name" name="page_name"/>
-    <input type="submit" value="Reset SHopping Cart Functionality" />
+    <input type="submit" value="Reset Shopping Cart Functionality" />
 </form>
 
 <form action="../../config/reload.php?page_name">
