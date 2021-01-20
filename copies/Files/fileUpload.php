@@ -104,15 +104,18 @@ if($_FILES['image']['size'] > 0) {
             $id = mysqli_query($con, $sql) or die('<pre>' . ((is_object($con)) ? mysqli_error($con) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>');
             
             $error = "Successful Item upload";
+            if (move_uploaded_file($_FILES[ 'image' ][ 'tmp_name' ], $target_file)) {
+                
+            }
             $_SESSION['error'] = $error;
-            header("location: http://127.0.0.1:8080/exploits/Files/uploadNewItem.php");
+            header("location: uploadNewItem.php");
             exit();
         }
     }
         else{
             $error = "File is not png image.";
             $_SESSION['error'] = $error;
-            header("location: http://127.0.0.1:8080/exploits/Files/uploadNewItem.php");
+            header("location: uploadNewItem.php");
             exit();
         }
     
