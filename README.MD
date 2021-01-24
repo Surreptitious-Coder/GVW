@@ -33,7 +33,7 @@ sudo chmod -R 777 GVW
 3. Make sure there are no processes using port **8080**, this can be done using the following line on linux:
 
 ```
-netstat -aon | findstr 8080
+netstat -aon | grep 8080
 ```
 And to kill the process:
 
