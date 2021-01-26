@@ -13,13 +13,13 @@ This is purely for edcational purpose and so the creator does not condone the us
 
 ### Prerequisites
 ------------------
-This program has only been tested on the Linux operating system, so it is recommended to use Linux as the choice of OS, specifically [Ubuntu] (https://ubuntu.com/download/desktop)
+This program has only been tested on the Linux operating system, so it is recommended to use Linux as the choice of OS, specifically [Ubuntu](https://ubuntu.com/download/desktop).
 
-The first program that needs to be installed is [Docker] (https://docs.docker.com/engine/install/ubuntu/) as the program makes use of dockers containers, and it is essential that [Docker-Compose] (https://docs.docker.com/compose/install/) is installed in order to build the container for the program.
+The first program that needs to be installed is [Docker](https://docs.docker.com/engine/install/ubuntu/) as the program makes use of dockers containers, and it is essential that [Docker-Compose](https://docs.docker.com/compose/install/) is installed in order to build the container for the program.
 
-Next it is recommended to use either [Google-Chrome] (https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en) or [Firefox] (https://www.mozilla.org/en-GB/firefox/new/) as they are the only browsers to have been fully tested, any others might result in the CSS code to not render, as is the case with Chromium. For the best experience I recommend Google Chrome as there are a few external CSS packages invoked that only seem to run on Chrome, but they are aesthetic and do not add to the functionality of the website.
+Next it is recommended to use either [Google-Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en) or [Firefox](https://www.mozilla.org/en-GB/firefox/new/) as they are the only browsers to have been fully tested, any others might result in the CSS code to not render, as is the case with Chromium. For the best experience I recommend Google Chrome as there are a few external CSS packages invoked that only seem to run on Chrome, but they are aesthetic and do not add to the functionality of the website.
 
-For web exploitation, it is necesary to install and use a web proxy to intercept and ghance requests. I made use of the [Burp-Suite] (https://portswigger.net/burp/communitydownload) proxy.
+For web exploitation, it is necesary to install and use a web proxy to intercept and ghance requests. I made use of the [Burp-Suite](https://portswigger.net/burp/communitydownload) proxy.
 
 The container takes up roughly 500MB of space as it also includes every dependency required to run it, including mySQL 5.7 and PHP 5.4.
 
@@ -56,7 +56,7 @@ sudo docker-compose down
 ```
 ### Proxy setup
 ---------------------
-For the web proxy, I used [Burp-Suite] (https://portswigger.net/burp/communitydownload).
+For the web proxy, I used [Burp-Suite](https://portswigger.net/burp/communitydownload).
 
 1. Install and setup the Burp Suite proxy using the link provided.
 2. Setup the proxy to listen on an arbritrary port, I personally used **port 8100**.
@@ -64,7 +64,7 @@ For the web proxy, I used [Burp-Suite] (https://portswigger.net/burp/communitydo
 
 ### Editing project code
 ---------------------------
-It is recommended to clone the project and import it into [Visual Studio] (https://code.visualstudio.com/download) in order to edit the code. **DO NOT EDIT** the folder labeled **copies** as that is used for resetting the front end or the backend if the user makes a change to the program that they wish to take back but for some reason cannot do so normally.
+It is recommended to clone the project and import it into [Visual Studio](https://code.visualstudio.com/download) in order to edit the code. **DO NOT EDIT** the folder labeled **copies** as that is used for resetting the front end or the backend if the user makes a change to the program that they wish to take back but for some reason cannot do so normally.
 
 When making changes, if they are not immediately visible, try emptying the browser's cache, or by re building the container via:
 
