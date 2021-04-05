@@ -33,7 +33,7 @@ sudo chmod -R 777 GVW
 3. Make sure there are no processes using port **8080**, this can be done using the following line on linux:
 
 ```
-netstat -aon | findstr 8080
+netstat -aon | grep 8080
 ```
 And to kill the process:
 
@@ -72,7 +72,6 @@ When making changes, make sure that you have ctually saved the changes locally (
 ```
 sudo docker-compose build --no-cache
 ```
-
 ### Design issues
 ------------------------
-This project has been designed to make use of google chrome and cannot guarantee that the application will look good on others. In some cases the CSS will fail to render at all if there is a web proxy active and you are not using Chrome, the only way to rectify this is to disable the proxy.
+This project has been designed to make use of google chrome and cannot guarantee that the application will look good on others. In some cases the CSS will fail to render at all if there is a web proxy active and you are not using Chrome, the only way to rectify this is to disable the proxy or to make sure the proxy for the browser has a valid certificate .
