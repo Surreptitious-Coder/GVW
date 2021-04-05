@@ -17,7 +17,7 @@ $password = trim($_POST["password"]);
 // Processing form data when form is submitted
 // Validate credentials
     // Prepare a select statement
-$sql = "SELECT id, username, password FROM admin WHERE username = ?";
+$sql = "SELECT id, username, password FROM GVWA.admin WHERE username = ?";
 
 if($stmt = mysqli_prepare($con, $sql)){
     // Bind variables to the prepared statement as parameters
@@ -48,7 +48,7 @@ if($stmt = mysqli_prepare($con, $sql)){
                     // Redirect user to welcome page
                     $password_err = "Congrats.";
                     setcookie("error",$password_err);
-                    header("location: http://127.0.0.1:8080/index.php");
+                    header("location: ../index.php");
                 } else{
                     // Display an error message if password is not valid
                     $password_err = "The password/username combo you entered was not valid.";

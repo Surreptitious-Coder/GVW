@@ -13,16 +13,18 @@ if(isset($_SESSION["error"])){
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
     $error = "Already logged in";
     $_SESSION["error"] = $error;
-    header("location: http://127.0.0.1:8080/");
+    header("location: ../");
     exit();
 }
  
 $allow = array("123.456.789", "127.0.0.1", "789.123.456"); //allowed IPs
 
+print_r($_SERVER);
+
 if(!isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !in_array($_SERVER['HTTP_X_FORWARDED_FOR'], $allow)) {
     $error = "wrong IP address";
     $_SESSION["error"] = $error;
-    header("location: http://127.0.0.1:8080/");
+    header("location: ../");
     exit();
 
 }
