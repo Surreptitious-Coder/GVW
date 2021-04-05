@@ -11,6 +11,6 @@ session_destroy();
 // Redirect to login page
 $error = "Successful Sign out";
 $_SESSION["error"] = $error;
-header("location: http://127.0.0.1:8080/index.php");
+header("location: ./index.php");
 exit;
 ?>

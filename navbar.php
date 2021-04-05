@@ -5,7 +5,7 @@ function navigation_bar() {
 <meta charset=\"UTF-8\">
 <title>GVW</title>
   
-  <link href=\"http://127.0.0.1:8080/css/style.css\" type=\"text/css\" rel=\"stylesheet\" />
+  <link href=\"../../css/style.css\" type=\"text/css\" rel=\"stylesheet\" />
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\" integrity=\"sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4\" crossorigin=\"anonymous\">
   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" integrity=\"sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN\" crossorigin=\"anonymous\">

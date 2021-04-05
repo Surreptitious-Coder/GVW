@@ -90,6 +90,8 @@ if(!isset($_SESSION['id'])) {
 
 unset($_SESSION["error"]);
 
+print_r($_SESSION)
+
 ?>
 
 <section id="intro" class="bg-white">
